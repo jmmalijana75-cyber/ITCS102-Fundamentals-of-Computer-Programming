@@ -1,41 +1,37 @@
-# age (integer)
-# is_employed (boolean)
-# credit_score (integer)
-# annual-income (float)
-# has_collateral (boolean)
+#nesting 
+print("Welcome to the Bank!")
+age = int(input("Enter you age ---->"))
+IsEmployed = bool(input("Are you currently Employed?--->"))
+credit_score = eval(input("Credit score history--->"))
+AnnualIncome = eval(input("How much is your annual income---->?"))
+HasCollateral = bool(input("Do you have any collateral--->?"))
 
-age = int(input("Enter Name --->"))
-is_employed = (input("Are you currently employed --->"))
-credit_score = eval(input("Credit score history --->"))
-annual_income = eval(input("How much is your annual income --->"))
-has_collateral = bool(input("Do you have any collateral --->"))
+base_interest = 0.0
+#1.
+if age >= 21 and IsEmployed == True:
+    print("you may now proceed to the next step")
 
-base_rate = 0.0
-if age >= 21 and is_employed:
-    print("Pass baseline eligibility")
-    if credit_score >= 750: #tier 1
-        print("Your credit score is above 750")
-        if annual_income >= 10000:
-            print("You have a high annual income")
-            base_rate = 4.5
-            print("Hi your interest rate is ", base_rate)
+
+    if credit_score >= 750:
+        if AnnualIncome >= 1000:
+           base_rate = 4.5
+           print("hi,your interest rate is",base_interest)
         else:
-            base_rate = 5.0
-            print("Hi, your interest rate is ", base_rate)
+          base_rate = 5.0
+          print("hi,your interest rate is",base_interest) 
+    elif credit_score >= 600 and credit_score >750:
+        if HasCollateral == True:
+            base_rate = 7,0
+            print("hi,your interest rate is",base_interest)
+        elif AnnualIncome > 40000:
+             base_rate = 9.5
+             print("hi,your interest rate is",base_interest)
+        else:
+             base_rate=8.0
+             print("hi,your interest rate is",base_interest)
+    if credit_score < 600:
+        print("rejected credit score too low!")
 
-elif credit_score >= 600 and credit_score < 750:
-    if has_collateral == True:
-        base_rate = 7.0
-        print("Hi your interest rate is ", base_rate)
-    elif annual_income < 40000:
-        base_rate = 9.5
-        print("Hi your interest is ", base_rate)
-    else:
-        base_rate = 8.0
-        print("Hi your interest rate is ", base_rate)
 
-        base_rate = 8.0
-        print("Hi your interest rate is ", base_rate)                    
-
-                
-
+else:
+    print("Baseline crietria Failed!")
